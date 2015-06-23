@@ -8,9 +8,19 @@ launchOrActivateApp = (appName) ->
   wasAlreadyRunning = hs.appfinder.appFromName(appName) != nil
   hs.application.launchOrFocus(appName)
 
+drawBanner = (message)->
+     d = hs.drawing.text({h: 200, w: 1500, x: 0, y: 0}, message)
+     d\setTextColor({red: 1, green: 1, blue: 1, alpha: 1})
+     d\setTextSize(100)
+     d\show()
+     d
+
+
 grid1 = Grid(6, 4)
 
 mash = {'CTRL', 'ALT', 'CMD'}
+
+hs.hotkey.bind(mash, '1',    -> drawBanner("Testing"))
 
 hs.hotkey.bind(mash, 'SPACE', Action.Maximize!\perform)
 hs.hotkey.bind(mash, '\\',    grid1\snapAll)
