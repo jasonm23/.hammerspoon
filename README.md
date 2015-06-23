@@ -6,7 +6,14 @@ It's written in [Moonscript][4], enjoy.
 
 # Changelog
 
-### Added README
+### Updated Modal System 2015-06-24
+
+- Modal resizing and moving
+    - vim / emacs / arrow direction key support
+    - show a banner while modes are active
+    - don't use alerts
+
+### Added README 2015-06-23
 
 - You're looking at it.
 

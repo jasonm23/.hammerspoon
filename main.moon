@@ -33,7 +33,7 @@ appShortcuts = {
   E: 'Emacs'
   V: 'MacVim'
   F: 'Finder'
-  T: 'iTerm'
+  T: 'iTerm2'
   C: 'Google Chrome'
 }
 
