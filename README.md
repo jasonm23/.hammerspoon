@@ -6,6 +6,12 @@ It's written in [Moonscript][4], enjoy.
 
 # Changelog
 
+### Added activateNewChrome 2015-06-25
+
+- mash + `=` to switch to newly launched Chrome (ie. for jasmine / rspec test browser instance)
+- set grid to 8w x 6h
+- added moses (underscore for Lua)
+
 ### Updated Modal System 2015-06-24
 
 - Modal resizing and moving

@@ -5,13 +5,18 @@ import Grid from require 'grid'
 Action = require 'action'
 
 launchOrActivateApp = (appName) ->
-  wasAlreadyRunning = hs.appfinder.appFromName(appName) != nil
+  wasAlreadyRunning = hs.appfinder.appFromName appName != nil
   hs.application.launchOrFocus appName
 
-grid1 = Grid 6, 4
+activateNewChrome = ->
+  lastApp = _.last(hs.application.runningApplications(),1)[1]
+  lastApp\activate() if lastApp != nil and lastApp\title() == "Google Chrome"
+
+grid1 = Grid 8, 6
 
 mash = {'ctrl', 'alt', 'cmd'}
 
+hs.hotkey.bind mash, '=',     activateNewChrome
 hs.hotkey.bind mash, '\\',    grid1\snapAll
 hs.hotkey.bind mash, 'SPACE', Action.Maximize!\perform
 hs.hotkey.bind mash, 'N',     Action.MoveToNextScreen!\perform
