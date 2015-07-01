@@ -4,6 +4,16 @@ import HotkeyModal from require "hotkey_modal"
 import Grid from require "grid"
 Action = require "action"
 
+makeSplash = () ->
+  s = hs.screen.mainScreen!
+  frame = s\frame!
+  w = 800
+  h = 340
+  x = (frame.w/2) - (w/2)
+  y = (frame.h/2) - (h/2)
+  splash = hs.drawing.image({w:w, h:h, x: x, y: y}, "hammerclip.gif")
+  splash
+
 launchOrActivateApp = (appName) ->
   wasAlreadyRunning = hs.appfinder.appFromName appName != nil
   hs.application.launchOrFocus appName
@@ -59,6 +69,7 @@ for shortcut, appName in pairs appShortcuts
 appsMode\bind {}, "RETURN", appsMode\exit
 
 resize = HotkeyModal "Resizing", modalMods, "r"
+move = HotkeyModal "Moving", modalMods, "m"
 
 resize\bind {}, "UP",     grid1\resizeShorter
 resize\bind {}, "DOWN",   grid1\resizeTaller
@@ -72,9 +83,8 @@ resize\bind {}, "P",      grid1\resizeShorter
 resize\bind {}, "N",      grid1\resizeTaller
 resize\bind {}, "B",      grid1\resizeThinner
 resize\bind {}, "F",      grid1\resizeWider
+resize\bind {}, "M",      move\enter
 resize\bind {}, "RETURN", resize\exit
-
-move = HotkeyModal "Moving", modalMods, "m"
 
 move\bind {}, "UP",     grid1\moveUp
 move\bind {}, "DOWN",   grid1\moveDown
@@ -88,8 +98,12 @@ move\bind {}, "P",      grid1\moveUp
 move\bind {}, "N",      grid1\moveDown
 move\bind {}, "B",      grid1\moveLeft
 move\bind {}, "F",      grid1\moveRight
+move\bind {}, "R",      resize\enter
 move\bind {}, "RETURN", move\exit
 
 hs.window.animationDuration = 0
 hs.pathwatcher.new(hs.configdir, (files) -> hs.reload!)\start!
-hs.alert.show "Power of Hammerspoon Activated!", 3
+splash = makeSplash!
+splash\show!
+hs.alert.show "By the Power of Hammerspoon!!!", 3
+hs.timer.doAfter 4, splash\delete
