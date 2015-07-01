@@ -26,6 +26,17 @@ activateNewChrome = ->
   lastApp = _.last(hs.application.runningApplications(),1)[1]
   lastApp\activate() if lastApp != nil and lastApp\title() == "Google Chrome"
 
+toggleBlueTooth = ->
+  hs.alert "Toggle Bluetooth - not yet ..."
+
+toggleWifi = ->
+  if hs.wifi.currentNetwork() == nil then
+    hs.alert "Toggle WiFi on"
+    os.execute "networksetup -setairportpower en0 on"
+  else
+    hs.alert "Toggle WiFi off"
+    os.execute "networksetup -setairportpower en0 off"
+
 grid1 = Grid 8, 6
 
 mash = {"ctrl", "alt", "cmd"}
@@ -68,38 +79,44 @@ for shortcut, appName in pairs appShortcuts
 
 appsMode\bind {}, "RETURN", appsMode\exit
 
-resize = HotkeyModal "Resizing", modalMods, "r"
-move = HotkeyModal "Moving", modalMods, "m"
+resizeMode = HotkeyModal "Resizing", modalMods, "r"
+moveMode = HotkeyModal "Moving", modalMods, "m"
 
-resize\bind {}, "UP",     grid1\resizeShorter
-resize\bind {}, "DOWN",   grid1\resizeTaller
-resize\bind {}, "LEFT",   grid1\resizeThinner
-resize\bind {}, "RIGHT",  grid1\resizeWider
-resize\bind {}, "K",      grid1\resizeShorter
-resize\bind {}, "J",      grid1\resizeTaller
-resize\bind {}, "H",      grid1\resizeThinner
-resize\bind {}, "L",      grid1\resizeWider
-resize\bind {}, "P",      grid1\resizeShorter
-resize\bind {}, "N",      grid1\resizeTaller
-resize\bind {}, "B",      grid1\resizeThinner
-resize\bind {}, "F",      grid1\resizeWider
-resize\bind {}, "M",      move\enter
-resize\bind {}, "RETURN", resize\exit
+resizeMode\bind {}, "UP",     grid1\resizeShorter
+resizeMode\bind {}, "DOWN",   grid1\resizeTaller
+resizeMode\bind {}, "LEFT",   grid1\resizeThinner
+resizeMode\bind {}, "RIGHT",  grid1\resizeWider
+resizeMode\bind {}, "K",      grid1\resizeShorter
+resizeMode\bind {}, "J",      grid1\resizeTaller
+resizeMode\bind {}, "H",      grid1\resizeThinner
+resizeMode\bind {}, "L",      grid1\resizeWider
+resizeMode\bind {}, "P",      grid1\resizeShorter
+resizeMode\bind {}, "N",      grid1\resizeTaller
+resizeMode\bind {}, "B",      grid1\resizeThinner
+resizeMode\bind {}, "F",      grid1\resizeWider
+resizeMode\bind {}, "M",      moveMode\enter
+resizeMode\bind {}, "RETURN", resizeMode\exit
 
-move\bind {}, "UP",     grid1\moveUp
-move\bind {}, "DOWN",   grid1\moveDown
-move\bind {}, "LEFT",   grid1\moveLeft
-move\bind {}, "RIGHT",  grid1\moveRight
-move\bind {}, "K",      grid1\moveUp
-move\bind {}, "J",      grid1\moveDown
-move\bind {}, "H",      grid1\moveLeft
-move\bind {}, "L",      grid1\moveRight
-move\bind {}, "P",      grid1\moveUp
-move\bind {}, "N",      grid1\moveDown
-move\bind {}, "B",      grid1\moveLeft
-move\bind {}, "F",      grid1\moveRight
-move\bind {}, "R",      resize\enter
-move\bind {}, "RETURN", move\exit
+moveMode\bind {}, "UP",     grid1\moveUp
+moveMode\bind {}, "DOWN",   grid1\moveDown
+moveMode\bind {}, "LEFT",   grid1\moveLeft
+moveMode\bind {}, "RIGHT",  grid1\moveRight
+moveMode\bind {}, "K",      grid1\moveUp
+moveMode\bind {}, "J",      grid1\moveDown
+moveMode\bind {}, "H",      grid1\moveLeft
+moveMode\bind {}, "L",      grid1\moveRight
+moveMode\bind {}, "P",      grid1\moveUp
+moveMode\bind {}, "N",      grid1\moveDown
+moveMode\bind {}, "B",      grid1\moveLeft
+moveMode\bind {}, "F",      grid1\moveRight
+moveMode\bind {}, "R",      resizeMode\enter
+moveMode\bind {}, "RETURN", moveMode\exit
+
+toolsMode = HotkeyModal "Tools", modalMods, "t"
+
+toolsMode\bind {}, "B", toggleBlueTooth
+toolsMode\bind {}, "W", toggleWifi
+toolsMode\bind {}, "RETURN", toolsMode\exit
 
 hs.window.animationDuration = 0
 hs.pathwatcher.new(hs.configdir, (files) -> hs.reload!)\start!
