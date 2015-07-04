@@ -3,6 +3,7 @@ require 'moonscript'
 import HotkeyModal from require "hotkey_modal"
 import Grid from require "grid"
 Action = require "action"
+bluetooth = require "hs._asm.undocumented.bluetooth"
 
 makeSplash = () ->
   s = hs.screen.mainScreen!
