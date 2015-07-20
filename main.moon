@@ -1,18 +1,6 @@
-require 'moonscript'
-
 import HotkeyModal from require "hotkey_modal"
 import Grid from require "grid"
 Action = require "action"
-
-makeSplash = () ->
-  s = hs.screen.mainScreen!
-  frame = s\frame!
-  w = 800
-  h = 340
-  x = (frame.w/2) - (w/2)
-  y = (frame.h/2) - (h/2)
-  splash = hs.drawing.image({w:w, h:h, x: x, y: y}, "hammerclip.gif")
-  splash
 
 launchOrActivateApp = (appName) ->
   wasAlreadyRunning = hs.appfinder.appFromName appName != nil
@@ -120,7 +108,4 @@ toolsMode\bind {}, "RETURN", toolsMode\exit
 
 hs.window.animationDuration = 0
 hs.pathwatcher.new(hs.configdir, (files) -> hs.reload!)\start!
-splash = makeSplash!
-splash\show!
 hs.alert.show "By the Power of Hammerspoon!!!", 3
-hs.timer.doAfter 4, splash\delete
