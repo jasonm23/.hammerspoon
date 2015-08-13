@@ -25,7 +25,7 @@ toggleWifi = ->
     hs.alert "Toggle WiFi off"
     os.execute "networksetup -setairportpower en0 off"
 
-grid1 = Grid 8, 6
+grid1 = Grid 28, 26
 
 mash = {"ctrl", "alt", "cmd"}
 

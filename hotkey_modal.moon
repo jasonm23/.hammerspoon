@@ -35,6 +35,7 @@ class HotkeyModal
      rect\show!
 
      text = hs.drawing.text textFrameTop, message
+     text\setTextFont "Helvetica Neue"
      text\setTextColor black
      text\setTextSize ts
      text\show!
