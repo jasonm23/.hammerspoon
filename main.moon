@@ -45,9 +45,6 @@ hs.hotkey.bind mash, "W",     Action.MoveToUnit({x: 0.5, y: 0.0, w: 0.5, h: 0.5}
 hs.hotkey.bind mash, "A",     Action.MoveToUnit({x: 0.0, y: 0.5, w: 0.5, h: 0.5})\perform
 hs.hotkey.bind mash, "S",     Action.MoveToUnit({x: 0.5, y: 0.5, w: 0.5, h: 0.5})\perform
 
-hs.hotkey.bind mash, "0",     grid1\tall
-hs.hotkey.bind mash, "9",     grid1\wide
-
 modalMods = {"cmd", "alt"}
 
 appsMode = HotkeyModal "Apps", modalMods, "a"
@@ -77,14 +74,12 @@ resizeMode\bind {}, "UP",     grid1\resizeShorter
 resizeMode\bind {}, "DOWN",   grid1\resizeTaller
 resizeMode\bind {}, "LEFT",   grid1\resizeThinner
 resizeMode\bind {}, "RIGHT",  grid1\resizeWider
-resizeMode\bind {}, "K",      grid1\resizeShorter
-resizeMode\bind {}, "J",      grid1\resizeTaller
-resizeMode\bind {}, "H",      grid1\resizeThinner
-resizeMode\bind {}, "L",      grid1\resizeWider
-resizeMode\bind {}, "P",      grid1\resizeShorter
-resizeMode\bind {}, "N",      grid1\resizeTaller
-resizeMode\bind {}, "B",      grid1\resizeThinner
-resizeMode\bind {}, "F",      grid1\resizeWider
+resizeMode\bind {}, "T",      grid1\fullHeight
+resizeMode\bind {}, "W",      grid1\fullWidth
+resizeMode\bind {}, "B",      grid1\wideCentered
+resizeMode\bind {}, "H",      grid1\halfWidth
+resizeMode\bind {}, "C",      grid1\centered
+
 resizeMode\bind {}, "M",      moveMode\enter
 resizeMode\bind {}, "RETURN", resizeMode\exit
 
@@ -92,14 +87,9 @@ moveMode\bind {}, "UP",     grid1\moveUp
 moveMode\bind {}, "DOWN",   grid1\moveDown
 moveMode\bind {}, "LEFT",   grid1\moveLeft
 moveMode\bind {}, "RIGHT",  grid1\moveRight
-moveMode\bind {}, "K",      grid1\moveUp
-moveMode\bind {}, "J",      grid1\moveDown
-moveMode\bind {}, "H",      grid1\moveLeft
-moveMode\bind {}, "L",      grid1\moveRight
-moveMode\bind {}, "P",      grid1\moveUp
-moveMode\bind {}, "N",      grid1\moveDown
-moveMode\bind {}, "B",      grid1\moveLeft
-moveMode\bind {}, "F",      grid1\moveRight
+moveMode\bind {}, "C",      grid1\centered
+moveMode\bind {}, "B",      grid1\wideCentered
+
 moveMode\bind {}, "R",      resizeMode\enter
 moveMode\bind {}, "RETURN", moveMode\exit
 

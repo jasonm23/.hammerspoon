@@ -41,22 +41,25 @@ class Grid
   snap: (win=hs.window.focusedWindow!) => if win\isStandard! then @set(win, @get(win), win\screen!)
   snapAll: => for win in *hs.window.visibleWindows! do @snap(win)
 
-  resizeWider: (win=nil) => @adjustWindow(win, (f) -> {w: min(f.w + 1.0, @width - f.x)})
-  resizeThinner: (win=nil) => @adjustWindow(win, (f) -> {w: max(f.w - 1.0, 1.0)})
-  resizeShorter: (win=nil) => @adjustWindow(win, (f) -> {y: f.y, h: max(f.h - 1.0, 1.0)})
-  resizeTaller: (win=nil) => @adjustWindow(win, (f) -> {y: f.y, h: min(f.h + 1.0, @height - f.y)})
+  resizeWider:         (win=nil) => @adjustWindow(win, (f) -> {w: min(f.w + 1.0, @width - f.x)})
+  resizeThinner:       (win=nil) => @adjustWindow(win, (f) -> {w: max(f.w - 1.0, 1.0)})
+  resizeShorter:       (win=nil) => @adjustWindow(win, (f) -> {y: f.y, h: max(f.h - 1.0, 1.0)})
+  resizeTaller:        (win=nil) => @adjustWindow(win, (f) -> {y: f.y, h: min(f.h + 1.0, @height - f.y)})
 
-  wide: (win=nil) => @adjustWindow(win, (f) -> {x: 0, w: @width})
-  tall: (win=nil) => @adjustWindow(win, (f) -> {y: 0, h: @height})
+  fullWidth:           (win=nil) => @adjustWindow(win, (f) -> {x: 0, w: @width})
+  halfWidth:           (win=nil) => @adjustWindow(win, (f) -> {w: @width / 2})
+  centered:            (win=nil) => @adjustWindow(win, (f) -> {x: @width / 4, h: @height, y: 0, w: @width / 2})
+  wideCentered:        (win=nil) => @adjustWindow(win, (f) -> {x: @width / 8, h: @height, y: 0, w: (@width / 8) * 6})
+  fullHeight:          (win=nil) => @adjustWindow(win, (f) -> {y: 0, h: @height})
 
-  moveUp: (win=nil) => @adjustWindow(win, (f) -> {y: max(0.0, f.y - 1.0)})
-  moveDown: (win=nil) => @adjustWindow(win, (f) -> {y: min(@height - f.h, f.y + 1.0)})
-  moveLeft: (win=nil) => @adjustWindow(win, (f) -> {x: max(0.0, f.x - 1.0)})
-  moveRight: (win=nil) => @adjustWindow(win, (f) -> {x: min(@width - f.w, f.x + 1.0)})
+  moveUp:              (win=nil) => @adjustWindow(win, (f) -> {y: max(0.0, f.y - 1.0)})
+  moveDown:            (win=nil) => @adjustWindow(win, (f) -> {y: min(@height - f.h, f.y + 1.0)})
+  moveLeft:            (win=nil) => @adjustWindow(win, (f) -> {x: max(0.0, f.x - 1.0)})
+  moveRight:           (win=nil) => @adjustWindow(win, (f) -> {x: min(@width - f.w, f.x + 1.0)})
 
-  positionTopLeft: (win=nil) => @adjustWindow(win, (f) -> {x: 0.0, y: 0.0})
-  positionBottomLeft: (win=nil) => @adjustWindow(win, (f) -> {x: 0.0, y: @height - f.h})
-  positionTopRight: (win=nil) => @adjustWindow(win, (f) -> {x: @width - f.w, y: 0.0})
+  positionTopLeft:     (win=nil) => @adjustWindow(win, (f) -> {x: 0.0, y: 0.0})
+  positionBottomLeft:  (win=nil) => @adjustWindow(win, (f) -> {x: 0.0, y: @height - f.h})
+  positionTopRight:    (win=nil) => @adjustWindow(win, (f) -> {x: @width - f.w, y: 0.0})
   positionBottomRight: (win=nil) => @adjustWindow(win, (f) -> {x: @width - f.w, y: @height - f.h})
 
 {

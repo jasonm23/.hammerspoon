@@ -11,6 +11,21 @@ The following rocks are required:
 
 # Changelog
 
+### Additional Quick Resize and Centering Macros
+
+- Resize and Move modes are now just cursor operated, Vi and Emacs
+  shorcuts are removed, I did this assuming resize and move modes are
+  probably unused, and I want more keys in this layer/mode to add
+  macros. (If you are using hjkl or fbnp to resize or move, open an issue)
+
+- Centered & Wide centered (full height) size + position within Resize and Moving Mode.
+    - Move or Resize Mode + C = Full height, half width window of display size, centered.
+    - Move or Resize Mode + B = Full height, 6/8ths width window of display size, centered.
+
+- Full Width - Resize Mode + W
+- Half Width - Resize Mode + H
+- Full Height - Resize Mode + T
+
 ### Fix up 2015-07-20
 
 - Cleaned up README
