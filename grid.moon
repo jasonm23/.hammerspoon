@@ -46,6 +46,9 @@ class Grid
   resizeShorter: (win=nil) => @adjustWindow(win, (f) -> {y: f.y, h: max(f.h - 1.0, 1.0)})
   resizeTaller: (win=nil) => @adjustWindow(win, (f) -> {y: f.y, h: min(f.h + 1.0, @height - f.y)})
 
+  wide: (win=nil) => @adjustWindow(win, (f) -> {x: 0, w: @width})
+  tall: (win=nil) => @adjustWindow(win, (f) -> {y: 0, h: @height})
+
   moveUp: (win=nil) => @adjustWindow(win, (f) -> {y: max(0.0, f.y - 1.0)})
   moveDown: (win=nil) => @adjustWindow(win, (f) -> {y: min(@height - f.h, f.y + 1.0)})
   moveLeft: (win=nil) => @adjustWindow(win, (f) -> {x: max(0.0, f.x - 1.0)})

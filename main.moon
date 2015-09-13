@@ -45,6 +45,9 @@ hs.hotkey.bind mash, "W",     Action.MoveToUnit({x: 0.5, y: 0.0, w: 0.5, h: 0.5}
 hs.hotkey.bind mash, "A",     Action.MoveToUnit({x: 0.0, y: 0.5, w: 0.5, h: 0.5})\perform
 hs.hotkey.bind mash, "S",     Action.MoveToUnit({x: 0.5, y: 0.5, w: 0.5, h: 0.5})\perform
 
+hs.hotkey.bind mash, "0",     grid1\tall
+hs.hotkey.bind mash, "9",     grid1\wide
+
 modalMods = {"cmd", "alt"}
 
 appsMode = HotkeyModal "Apps", modalMods, "a"

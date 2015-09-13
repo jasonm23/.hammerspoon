@@ -29,6 +29,17 @@ The following rocks are required:
     - Finder - <kbd>f</kbd>
     - Google Chrome - <kbd>c</kbd>
 
+### Added  Lua 5.3 upgrade 2015-07-17
+
+### Added Toggle Wifi 2015-07-01
+
+- Added toggle wifi
+- Added animated splash
+
+### Added Modal application selection 2015-06-26
+
+- Added modal application selection <kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>a</kbd> -> [<kbd>v</kbd>]im, [<kbd>t</kbd>]erm, [<kbd>e</kbd>]macs, [<kbd>c</kbd>]hrome, [<kbd>f</kbd>]inder
+
 ### Added activateNewChrome 2015-06-25
 
 - Switch to newly launched Chrome - <kbd>MASH</kbd> + <kbd>=</kbd>
@@ -50,6 +61,7 @@ The following rocks are required:
 ### Initial commit 2015-06-23
 
 - Modal move/resize/position modes
+<<<<<<< HEAD
 
 - MASH (<kbd>Cmd</kbd> + <kbd>Ctrl</kbd> + <kbd>Opt</kbd>) hotkeys for position, size, app switching
 
@@ -75,6 +87,20 @@ The following rocks are required:
 
 - Grid 6h x 4w
 - <kbd>Cmd</kbd>+<kbd>Alt</kbd> (modal) <kbd>1</kbd>, <kbd>2</kbd>, <kbd>3</kbd> - position, size, move (<kbd>Enter</kbd> to end mode)
+=======
+- Mash (cmd,ctrl,opt) hotkeys for position, size, app switching
+- Apps iTerm2 (mash + t)
+- Emacs (mash + e)
+- MacVim (mash + v)
+- Finder (mash + f)
+- Google Chrome (mash + g)
+- mash + q,w,a,s move to quater screen size/position
+- mash + up, down, left, right move/size to half screen position
+- mash + space maximize
+- mash + \ snap all to grid
+- grid is 6h x 4w
+- Cmd+Alt (modal) 1,2,3 - position, size, move (Enter to end mode)
+>>>>>>> Add tall / wide
 
 [1]: http://www.hammerspoon.org/
 [2]: https://github.com/mgee

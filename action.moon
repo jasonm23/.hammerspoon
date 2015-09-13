@@ -1,7 +1,6 @@
 require 'moonscript'
 utils = require 'utils'
 
-
 class Close
   new: () =>
   perform: (win=hs.window.focusedWindow!) => win\close!
@@ -15,7 +14,6 @@ class Maximize
 class FullScreen
   new: () =>
   perform: (win=hs.window.focusedWindow!) => win\setFullScreen(true)
-
 
 class Snap
   new: (grid) => @grid = grid
@@ -47,5 +45,5 @@ class MoveToUnit
 {
   :Close, :Maximize, :FullScreen, :Snap,
   :MoveToScreen, :MoveToNextScreen, :MoveToPreviousScreen,
-  :MoveToUnit, 
+  :MoveToUnit,
 }
