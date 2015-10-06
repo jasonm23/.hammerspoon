@@ -44,6 +44,7 @@ hs.hotkey.bind mash, "Q",     Action.MoveToUnit({x: 0.0, y: 0.0, w: 0.5, h: 0.5}
 hs.hotkey.bind mash, "W",     Action.MoveToUnit({x: 0.5, y: 0.0, w: 0.5, h: 0.5})\perform
 hs.hotkey.bind mash, "A",     Action.MoveToUnit({x: 0.0, y: 0.5, w: 0.5, h: 0.5})\perform
 hs.hotkey.bind mash, "S",     Action.MoveToUnit({x: 0.5, y: 0.5, w: 0.5, h: 0.5})\perform
+hs.hotkey.bind mash, "D",     Action.MoveToUnit({x: 0.25, y: 0.25, w: 0.5, h:0.5})\perform
 
 modalMods = {"cmd", "alt"}
 

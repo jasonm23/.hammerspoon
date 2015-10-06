@@ -18,6 +18,9 @@ The following rocks are required:
   probably unused, and I want more keys in this layer/mode to add
   macros. (If you are using hjkl or fbnp to resize or move, open an issue)
 
+- Center window (half height, half width) within modal mode
+    - Modal mode + D = Half height, half width window of display size, centered.
+
 - Centered & Wide centered (full height) size + position within Resize and Moving Mode.
     - Move or Resize Mode + C = Full height, half width window of display size, centered.
     - Move or Resize Mode + B = Full height, 6/8ths width window of display size, centered.
